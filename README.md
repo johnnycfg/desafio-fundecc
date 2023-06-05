@@ -2,9 +2,11 @@ Este é um projeto para o desafio técnico da FUNDECC.
 
 ## Começando
 
-Primeiramente, este projeto utiliza o [`Django REST framework`](https://www.django-rest-framework.org/#installation), logo, certifique-se de que tenha as versões mais recentes do [Python](https://www.python.org/downloads) e [Django](https://docs.djangoproject.com/en/4.2/topics/install/#installing-official-release) instalados em sua máquina e, em seguida, instale o rest framework.
+Primeiramente, este projeto utiliza o [`Django REST framework`](https://www.django-rest-framework.org/#installation), logo, requere-se também as versões mais recentes do [Python](https://www.python.org/downloads) e [Django](https://docs.djangoproject.com/en/4.2/topics/install/#installing-official-release) (dentre outros pacotes). Para facilitar a execução do código, foi utilizado docker no projeto.
 
-Após isso, clone este repositório em sua máquina, entre na pasta `desafio-fundecc` e abra no seu editor de código:
+Com isso, será necessário instalar manualmente o [docker](https://www.docker.com/get-started) em sua máquina antes de continuar com os passos abaixo.
+
+Em seguida, clone este repositório, entre na pasta `desafio-fundecc` e abra no seu editor de código:
 
 ```bash
 git clone git@github.com:johnnycfg/desafio-fundecc.git
@@ -16,29 +18,12 @@ cd desafio-fundecc
 code .
 ```
 
+Agora será necessário executar o comando de build do docker para que ele suba os containers da aplicação e do banco de dados.
 
+```bash
+docker compose up --build
+```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+E pronto, com isso tanto a aplicação quanto o banco já deverão estar disponíveis externamente aos containers nas portas 8001 e 5433 respectivamente.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Disponibilizei no [link](https://1drv.ms/u/s!ArzKJtKn8RIjmAeDSVzS-heF5L1j?e=dLfTxQ) uma collection do [Postman](https://www.postman.com/) com as rotas criadas e com valores pré-preenchidos para facilitar a validação, sendo necessário apenas importar o arquivo no aplicativo.
