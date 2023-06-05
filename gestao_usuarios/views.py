@@ -1,52 +1,11 @@
-from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework import status
 from gestao_usuarios.models import Grupo, Usuario
 from gestao_usuarios.serializer import GrupoSerializer, UsuarioSerializer
 
+
 # Grupos
-@api_view(['GET'])
-def listar_grupos(request):
-    grupos = Grupo.objects.all()
-    serializer = GrupoSerializer(grupos, many=True)
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def criar_grupo(request):
-    serializer = GrupoSerializer(data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    else:
-        return Response(serializer.errors)
-    
-# Usuários
-@api_view(['GET'])
-def listar_usuarios(request):
-    usuarios = Usuario.objects.all()
-    serializer = UsuarioSerializer(usuarios, many=True)
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def criar_usuario(request):
-    serializer = UsuarioSerializer(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    else:
-        return Response(serializer.errors)
-    
-
-
-
-    
-from rest_framework.views import APIView
-from rest_framework import status
-
 class GrupoList(APIView):
     def get(self, request):
         grupos = Grupo.objects.all()
@@ -68,7 +27,6 @@ class GrupoDetail(APIView):
         try:
             return Grupo.objects.get(pk=pk)
         except Grupo.DoesNotExist:
-            print('caiu no except')
             return Response({
                 'error': 'O grupo informado não existe'
             }, status=status.HTTP_400_BAD_REQUEST)
@@ -96,6 +54,7 @@ class GrupoDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
+# Usuários
 class UsuarioList(APIView):
     def get(self, request):
         usuarios = Usuario.objects.all()
