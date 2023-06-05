@@ -9,8 +9,6 @@ Com isso, será necessário instalar manualmente o [docker](https://www.docker.c
 Em seguida, clone este repositório, entre na pasta `desafio-fundecc` e abra no seu editor de código:
 
 ```bash
-git clone git@github.com:johnnycfg/desafio-fundecc.git
-# ou
 git clone https://github.com/johnnycfg/desafio-fundecc.git
 
 # após finalizar, entre na pasta e abra o projeto no editor de código
